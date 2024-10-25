@@ -47,3 +47,11 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+#divergence times and phylogenetic analysis
+.DS Store
+Xylocopa_51_5sets_BEAST2/
+Xylocopa_51_5sets_ML/
+Xylocopa_9820168_BEAST2/
+Xylocopa_9820168_MrBayes_final/
+
