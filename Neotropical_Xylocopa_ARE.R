@@ -2,7 +2,8 @@
 ################################       BioGeoBEARS          ################################
 ############################################################################################
 
-setwd("/Users/alinemartins/Library/CloudStorage/OneDrive-Pessoal/__xylocopa/_Biogeography/Neotropical-Xylocopa-Biogeography")
+#setwd("/Users/alinemartins/Library/CloudStorage/OneDrive-Pessoal/__xylocopa/_Biogeography/Neotropical-Xylocopa-Biogeography")
+setwd("~/Biogeography/Neotropical-Xylocopa-Biogeography")
 
 ################################  Basic tree edition in APE  ###############################
 
@@ -96,7 +97,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE
 BioGeoBEARS_run_object$on_NaN_error = -1e50   
 BioGeoBEARS_run_object$speedup = TRUE         
 BioGeoBEARS_run_object$use_optimx = "GenSA"   
-BioGeoBEARS_run_object$num_cores_to_use = 60
+BioGeoBEARS_run_object$num_cores_to_use = 90
 BioGeoBEARS_run_object$force_sparse = FALSE    
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -285,7 +286,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE
 BioGeoBEARS_run_object$on_NaN_error = -1e50    
 BioGeoBEARS_run_object$speedup = TRUE          
 BioGeoBEARS_run_object$use_optimx = "GenSA"   
-BioGeoBEARS_run_object$num_cores_to_use = 60
+BioGeoBEARS_run_object$num_cores_to_use = 90
 BioGeoBEARS_run_object$force_sparse = FALSE   
 
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
@@ -311,6 +312,20 @@ BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","est"] = 0.
 
 
 check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+runslow = T
+resfn = "Xylocopa9_DIVALIKE_M0_unconstrained_v1.Rdata"
+if (runslow){
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)
+  resDIVALIKE = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resDIVALIKE = res
+}
 
 runslow = F
 resfn = "Xylocopa9_DIVALIKE_M0_unconstrained_v1.Rdata"
@@ -338,7 +353,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE
 BioGeoBEARS_run_object$on_NaN_error = -1e50   
 BioGeoBEARS_run_object$speedup = TRUE          
 BioGeoBEARS_run_object$use_optimx = "GenSA"   
-BioGeoBEARS_run_object$num_cores_to_use = 40
+BioGeoBEARS_run_object$num_cores_to_use = 90
 BioGeoBEARS_run_object$force_sparse = FALSE   
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -378,7 +393,7 @@ BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","max"] = 1.9999
 check_BioGeoBEARS_run(BioGeoBEARS_run_object)
 
 resfn = "Xylocopa9_DIVALIKE+J_M0_unconstrained_v1.Rdata"
-runslow = F
+runslow = T
 if (runslow){
   #sourceall("/Dropbox/_njm/__packages/BioGeoBEARS_setup/")
   
@@ -491,7 +506,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE
 BioGeoBEARS_run_object$on_NaN_error = -1e50    
 BioGeoBEARS_run_object$speedup = TRUE         
 BioGeoBEARS_run_object$use_optimx = "GenSA"   
-BioGeoBEARS_run_object$num_cores_to_use = 60
+BioGeoBEARS_run_object$num_cores_to_use = 90
 BioGeoBEARS_run_object$force_sparse = FALSE   
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -512,6 +527,20 @@ BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01y","est"] = 0.
 
 
 check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+runslow = T
+resfn = "Xylocopa9_BAYAREALIKE_M0_unconstrained_v1.Rdata"
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)
+  resBAYAREALIKE = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resBAYAREALIKE = res
+}
 
 runslow = F
 resfn = "Xylocopa9_BAYAREALIKE_M0_unconstrained_v1.Rdata"
@@ -541,7 +570,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE
 BioGeoBEARS_run_object$on_NaN_error = -1e50   
 BioGeoBEARS_run_object$speedup = TRUE         
 BioGeoBEARS_run_object$use_optimx = "GenSA"
-BioGeoBEARS_run_object$num_cores_to_use = 60
+BioGeoBEARS_run_object$num_cores_to_use = 90
 BioGeoBEARS_run_object$force_sparse = FALSE    
 
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
@@ -585,6 +614,21 @@ BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","max"] = 0.9999
 check_BioGeoBEARS_run(BioGeoBEARS_run_object)
 
 resfn = "Xylocopa9_BAYAREALIKE+J_M0_unconstrained_v1.Rdata"
+runslow = T
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)
+  
+  resBAYAREALIKEj = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resBAYAREALIKEj = res
+}
+
 runslow = F
 if (runslow)
 {
